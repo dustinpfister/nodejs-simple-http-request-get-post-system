@@ -26,7 +26,11 @@ let dir_root = process.argv[2] || path.join(__dirname, '../..');
 let dir_middleware = path.join(dir_root, 'middleware');
 
 // default middleware that does nothing
-let middleware = function(req, res, next){next(req, res);}; 
+let middleware = function(req, res, next){
+
+next(req, res);
+
+}; 
 
 // public folder to serve
 let dir_public = process.argv[3] || path.join(__dirname, '../../public');
@@ -238,9 +242,10 @@ server.listen(port, host, () => {
     console.log('host: ' + host);
     // try to set up middelware
     try{
-        middleware = require(path.join(dir_middleware, 'index.js') );
+        middleware = require( path.join(dir_middleware, 'index.js') );
         console.log('middleware index found.');
     }catch(e){
         console.log('no /middleware/index.js found.');
+        console.log(e.message);
     }
 });

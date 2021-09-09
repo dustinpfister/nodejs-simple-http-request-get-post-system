@@ -12,17 +12,28 @@
         </div>
         <script src="/js/utils.js"></script>
         <script>
-utils.http({
-   url: '/',
-   method: 'POST',
-   body: JSON.stringify({mess: 'hello'}),
-   onDone: function(res){
-       console.log(res);
-   },
-   onError: function(a){
-       console.log('error');
-       console.log(a);
-   }
+
+var setCellType = function(cellIndex, typeIndex, done){
+        utils.http({
+        url: '/',
+        method: 'POST',
+        body: JSON.stringify({mess: 'hello', action: 'setCellType', cellIndex: 1, typeIndex: 1 }),
+        onDone: function(res){
+            done(res, null);
+        },
+        onError: function(e){
+            done(null, e);
+        }
+    });
+};
+
+// set cell type
+setCellType(1, 1, function(res, e){
+    if(e){
+        console.log(e);
+    }else{
+        console.log(res);
+    }
 });
 
 /*
