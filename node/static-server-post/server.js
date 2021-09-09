@@ -8,6 +8,7 @@
  */
 
 let http = require('http'),
+os = require('os'),
 fs = require('fs'),
 path = require('path'),
 promisify = require('util').promisify,
@@ -24,6 +25,10 @@ let dir_public = process.argv[3] || path.join(__dirname, '../../public');
 
 // set port with argument or hard coded default
 let port = process.argv[4] || 8080; // port 8888 for now
+
+// host defaults to os.networkInterfaces().lo[0].address
+let netInter = os.networkInterfaces();
+let host = process.argv[5] || netInter.lo[0].address; 
 
 // create path info object
 let createPathInfoObject = (url) => {
@@ -147,9 +152,10 @@ let server = http.createServer(function (req, res) {
 });
 
 // start server
-server.listen(port, function () {
+server.listen(port, host, function () {
     console.log('hosting a public folder at: ');
     console.log('dir_root: ' + dir_root);
     console.log('dir_public: ' + dir_public);
     console.log('port: ' + port);
+    console.log('host: ' + host);
 });
