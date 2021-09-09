@@ -153,7 +153,7 @@ let server = http.createServer(function (req, res) {
 
 // start server
 server.listen(port, host, function () {
-    console.log('hosting a public folder at: ');
+    console.log('server is up: ');   
     console.log('dir_root: ' + dir_root);
     console.log('dir_public: ' + dir_public);
     console.log('port: ' + port);
