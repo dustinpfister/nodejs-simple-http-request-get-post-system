@@ -152,22 +152,24 @@ forRequest.GET = (req, res) => {
     createPathInfoObject(req.url)
     // if we have a pinfo object without any problems
     .then((pInfo)=>{
-        // send content
-        res.writeHead(200, {
-            'Content-Type': pInfo.mime
-        });
         // if we have html send that
         if(pInfo.html != ''){
+            res.writeHead(200, {
+                'Content-Type': pInfo.mime
+            });
             res.write(pInfo.html, pInfo.encoding);
             res.end();
         }else{
             // else we are sending a file
             readFile(pInfo.uri, pInfo.encoding).then((file)=>{
+                res.writeHead(200, {
+                    'Content-Type': pInfo.mime
+                });
                 res.write(file, pInfo.encoding);
                 res.end();
             }).catch((e)=>{
                 // send content
-                res.writeHead(200, {
+                res.writeHead(500, {
                     'Content-Type': 'text/plain'
                 });
                 res.write(e.message, 'utf8');
@@ -176,7 +178,7 @@ forRequest.GET = (req, res) => {
         }
     }).catch((e)=>{
         // send content
-        res.writeHead(200, {
+        res.writeHead(500, {
             'Content-Type': 'text/plain'
         });
         res.write(e.message, 'utf8');
@@ -188,11 +190,6 @@ forRequest.GET = (req, res) => {
 forRequest.POST = (req, res) => {
 
     parseBody(req, res, function(req, res){
-        console.log('');
-        console.log('body: ');
-        console.log(req.body);
-        console.log('');
-
         res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
