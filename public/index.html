@@ -7,6 +7,9 @@
         <div class="banner" >
             <h1 class="banner_text" >Simple http request get post system</h1>
         </div>
+        <div class="content">
+           <p>Content</p>
+        </div>
         <script src="/js/utils.js"></script>
         <script>
 utils.http({
@@ -14,7 +17,9 @@ utils.http({
    method: 'GET',
    onDone: function(res){
 try{
-    console.log(JSON.parse(res));
+    var obj = JSON.parse(res);
+    var div = document.querySelector('.content');
+    div.innerHTML = '<p>' + obj.mess + '</p>'
 }catch(e){
     console.log(e);
 }
