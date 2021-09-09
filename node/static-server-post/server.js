@@ -58,6 +58,7 @@ let createPathInfoObject = (url) => {
             pInfo.mime = pInfo.ext === '.html' ? 'text/html' : pInfo.mime;
             pInfo.mime = pInfo.ext === '.css' ? 'text/css' : pInfo.mime;
             pInfo.mime = pInfo.ext === '.js' ? 'text/javascript' : pInfo.mime;
+            pInfo.mime = pInfo.ext === '.json' ? 'application/json' : pInfo.mime;
              // images
             pInfo.mime = pInfo.ext === '.png' ? 'image/png' : pInfo.mime;
             pInfo.mime = pInfo.ext === '.ico' ? 'image/x-icon' : pInfo.mime;
