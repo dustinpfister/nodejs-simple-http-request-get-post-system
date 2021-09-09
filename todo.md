@@ -8,9 +8,9 @@
 ## () - 0.1.0 - start utils.js, and updated client system
 * (done) have a /public/js folder with a utils.js file
 * (done) the utils.js file should have an utils.http method based off of the one in js-javascript-example-utils
-* have a /public/img folder with a banner.png image
-* use the /public/img/banner.png file in /public/index.html
-* have a /public/json/test.json file
+* (done) have a /public/img folder with a banner.png image
+* (done) use the /public/img/banner.png file in /public/index.html
+* have a /public/test.json file
 * use utils.http to get the test.json file and inject the data into index.html
 
 ## ( done 09/09/2021 ) - 0.0.0 - start the project
