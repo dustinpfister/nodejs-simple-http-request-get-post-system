@@ -1,8 +1,8 @@
 # nodejs-simple-http-request-get-post-system todo list
 
-## () - 0.4.0 - middleware folder
-* have a /middleware folder which is what will be what is used to customize how requests should be processed
-* have a /middleware/index.js file that will be the main file that the server script will call for a request
+## ( done 09/09/2021 ) - 0.4.0 - middleware folder
+* (done) have a /middleware folder which is what will be what is used to customize how requests should be processed
+* (done) have a /middleware/index.js file that will be the main file that the server script will call for a request
 
 ## ( done 09/09/2021  ) - 0.3.0 - parse a body
 * (done) parse a body sent from index.html
