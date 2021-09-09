@@ -115,7 +115,15 @@ let createDirInfo = (pInfo) => {
 };
 
 // create server object
-let server = http.createServer(function (req, res) {
+let server = http.createServer();
+
+// on request
+server.on('request', function (req, res) {
+
+    console.log(req.method);
+    console.log(req.url);
+    console.log('');
+
     // create path info object for req.url
     createPathInfoObject(req.url)
     // if we have a pinfo object without any problems
