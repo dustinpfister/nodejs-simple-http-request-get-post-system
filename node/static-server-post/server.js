@@ -117,13 +117,11 @@ let createDirInfo = (pInfo) => {
 // create server object
 let server = http.createServer();
 
-// on request
-server.on('request', function (req, res) {
 
-    console.log(req.method);
-    console.log(req.url);
-    console.log('');
+let forRequest = {};
 
+// for ALL GET requests
+forRequest.GET = (req, res) => {
     // create path info object for req.url
     createPathInfoObject(req.url)
     // if we have a pinfo object without any problems
@@ -158,10 +156,19 @@ server.on('request', function (req, res) {
         res.write(e.message, 'utf8');
         res.end();
     });
+};
+
+// on request
+server.on('request', (req, res)=>{
+    console.log(req.method);
+    console.log(req.url);
+    console.log('');
+    // call method for request method
+    forRequest[req.method].call(this, req, res);
 });
 
 // start server
-server.listen(port, host, function () {
+server.listen(port, host, () => {
     console.log('server is up: ');   
     console.log('dir_root: ' + dir_root);
     console.log('dir_public: ' + dir_public);
