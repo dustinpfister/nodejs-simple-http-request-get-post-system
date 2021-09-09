@@ -1,7 +1,7 @@
 # nodejs-simple-http-request-get-post-system todo list
 
 ## () - 0.5.0 - ui in index.html, and demo middleware
-* in place of text.json have a map.json that will contain data for a map
+* (done) have a map.json that will contain data for a map
 * the map can just be an array of objects for a 8 by 8 grid
 * the index.html ui can be used to mutate the state of the json file map
 
