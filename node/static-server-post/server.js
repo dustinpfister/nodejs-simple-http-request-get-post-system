@@ -16,6 +16,8 @@ lstat = promisify(fs.lstat),
 readFile = promisify(fs.readFile),
 readdir = promisify(fs.readdir);
 
+// THE MAX BODY SIZE
+let BODY_MAX_SIZE = 1024;
 
 // the root folder of the project
 let dir_root = process.argv[2] || path.join(__dirname, '../..');
@@ -121,7 +123,7 @@ let parseBody = (req, res, next) => {
     req.on('data', function (chunk) {
         bodyStr += chunk.toString();
         // do some basic sanitation
-        if (bodyStr.length >= 200) {
+        if (bodyStr.length >= BODY_MAX_SIZE) {
             // if body char length is greater than
             // or equal to 200 destroy the connection
             res.connection.destroy();
