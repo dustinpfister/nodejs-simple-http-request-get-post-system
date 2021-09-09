@@ -114,6 +114,30 @@ let createDirInfo = (pInfo) => {
     });
 };
 
+// parse a body for a post request
+let parseBody = (req, res, next) => {
+    let bodyStr = '';
+    req.body = {};
+    req.on('data', function (chunk) {
+        bodyStr += chunk.toString();
+        // do some basic sanitation
+        if (body.length >= 200) {
+            // if body char length is greater than
+            // or equal to 200 destroy the connection
+            res.connection.destroy();
+        }
+    });
+    // once the body is received
+    req.on('end', function () {
+        try{
+            req.body = JSON.parse(bodyStr);
+        }catch(e){
+            req.body = bodyStr;
+        }
+        next(req, res);
+    });
+};
+
 // create server object
 let server = http.createServer();
 
