@@ -141,7 +141,7 @@ forRequest.GET = (req, res) => {
                 res.end();
             }).catch((e)=>{
                 // send content
-                res.writeHead(200, {
+                res.writeHead(500, {
                     'Content-Type': 'text/plain'
                 });
                 res.write(e.message, 'utf8');
@@ -150,12 +150,21 @@ forRequest.GET = (req, res) => {
         }
     }).catch((e)=>{
         // send content
-        res.writeHead(200, {
+        res.writeHead(500, {
             'Content-Type': 'text/plain'
         });
         res.write(e.message, 'utf8');
         res.end();
     });
+};
+
+// for any post request
+forRequest.POST = (req, res) => {
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+    });
+    res.write('hello world', 'utf8');
+    res.end();
 };
 
 // on request
@@ -164,7 +173,17 @@ server.on('request', (req, res)=>{
     console.log(req.url);
     console.log('');
     // call method for request method
-    forRequest[req.method].call(this, req, res);
+    var method = forRequest[req.method];
+    if(method){ 
+        method.call(this, req, res);
+    }else{
+        // send content
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
+        res.write('unsupported http method ' + req.method, 'utf8');
+        res.end();
+    }
 });
 
 // start server
