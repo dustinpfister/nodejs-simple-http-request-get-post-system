@@ -22,6 +22,12 @@ let BODY_MAX_SIZE = 1024;
 // the root folder of the project
 let dir_root = process.argv[2] || path.join(__dirname, '../..');
 
+// the folder to look for middware to know what to do for post requests
+let dir_middleware = path.join(dir_root, 'middleware');
+
+// default middleware is noop
+let middleware = function(){}; 
+
 // public folder to serve
 let dir_public = process.argv[3] || path.join(__dirname, '../../public');
 
@@ -226,4 +232,10 @@ server.listen(port, host, () => {
     console.log('dir_public: ' + dir_public);
     console.log('port: ' + port);
     console.log('host: ' + host);
+    // try to set up middelware
+    try{
+        middleware = require(path.join(dir_middleware, 'index.js') );
+    }catch(e){
+        console.log('no /middleware/index.js found.');
+    }
 });

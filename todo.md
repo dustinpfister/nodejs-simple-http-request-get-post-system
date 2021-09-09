@@ -2,10 +2,11 @@
 
 ## () - 0.4.0 - middleware folder
 * have a /middleware folder which is what will be what is used to customize how requests should be processed
+* have a /middleware/index.js file that will be the main file that the server script will call for a request
 
-## () - 0.3.0 - parse a body
-* parse a body sent from index.html
-* for now just send back the same body, and a message as a json string
+## ( done 09/09/2021  ) - 0.3.0 - parse a body
+* (done) parse a body sent from index.html
+* (done) for now just send back the same body, and a message as a json string
 
 ## ( done 09/09/2021 ) - 0.2.0 - Make post requests from /public/index.html
 * (done) make changes to static-server-post that will allow for responding to post requests
