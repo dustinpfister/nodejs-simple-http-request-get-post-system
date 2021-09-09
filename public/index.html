@@ -13,6 +13,20 @@
         <script src="/js/utils.js"></script>
         <script>
 utils.http({
+   url: '/',
+   method: 'POST',
+   body: JSON.stringify({mess: 'hello'}),
+   onDone: function(res){
+       console.log(res);
+   },
+   onError: function(a){
+       console.log('error');
+       console.log(a);
+   }
+});
+
+/*
+utils.http({
    url: '/test.json',
    method: 'GET',
    onDone: function(res){
@@ -25,6 +39,7 @@ try{
 }
    }
 });
+*/
         </script>
     </body>
 </html>

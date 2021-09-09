@@ -141,7 +141,7 @@ forRequest.GET = (req, res) => {
                 res.end();
             }).catch((e)=>{
                 // send content
-                res.writeHead(500, {
+                res.writeHead(200, {
                     'Content-Type': 'text/plain'
                 });
                 res.write(e.message, 'utf8');
@@ -150,7 +150,7 @@ forRequest.GET = (req, res) => {
         }
     }).catch((e)=>{
         // send content
-        res.writeHead(500, {
+        res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
         res.write(e.message, 'utf8');
@@ -163,15 +163,12 @@ forRequest.POST = (req, res) => {
     res.writeHead(200, {
         'Content-Type': 'text/plain'
     });
-    res.write('hello world', 'utf8');
+    res.write('hello world, yes this is a response to a POST', 'utf8');
     res.end();
 };
 
 // on request
 server.on('request', (req, res)=>{
-    console.log(req.method);
-    console.log(req.url);
-    console.log('');
     // call method for request method
     var method = forRequest[req.method];
     if(method){ 

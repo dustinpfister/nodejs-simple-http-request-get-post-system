@@ -1,7 +1,7 @@
 # nodejs-simple-http-request-get-post-system todo list
 
 ## () - 0.2.0 - Make post requests from /public/index.html
-* make changes to static-server-post that will allow for responding to post requests
+* (done) make changes to static-server-post that will allow for responding to post requests
 * make a post request from index.html
 * read and write to a /foo.txt file at root for now
 
