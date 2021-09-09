@@ -16,11 +16,14 @@ readFile = promisify(fs.readFile),
 readdir = promisify(fs.readdir);
 
 
-// the root folder to serve
+// the root folder of the project
 let root = process.argv[2] || path.join(__dirname, '../..');
 
+// public folder to serve
+let uri_public = process.argv[3] || path.join(__dirname, '../../public');
+
 // set port with argument or hard coded default
-let port = process.argv[3] || 8080; // port 8888 for now
+let port = process.argv[4] || 8080; // port 8888 for now
 
 // create path info object
 let createPathInfoObject = (url) => {
@@ -146,6 +149,7 @@ let server = http.createServer(function (req, res) {
 // start server
 server.listen(port, function () {
     console.log('hosting a public folder at: ');
-    console.log('path: ' + root);
+    console.log('uri_root: ' + root);
+    console.log('uri_public: ' + uri_public);
     console.log('port: ' + port);
 });
