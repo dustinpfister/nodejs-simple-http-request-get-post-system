@@ -239,6 +239,7 @@ server.listen(port, host, () => {
     // try to set up middelware
     try{
         middleware = require(path.join(dir_middleware, 'index.js') );
+        console.log('middleware index found.');
     }catch(e){
         console.log('no /middleware/index.js found.');
     }
