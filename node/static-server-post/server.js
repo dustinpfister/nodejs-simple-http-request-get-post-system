@@ -121,7 +121,7 @@ let parseBody = (req, res, next) => {
     req.on('data', function (chunk) {
         bodyStr += chunk.toString();
         // do some basic sanitation
-        if (body.length >= 200) {
+        if (bodyStr.length >= 200) {
             // if body char length is greater than
             // or equal to 200 destroy the connection
             res.connection.destroy();
@@ -184,11 +184,19 @@ forRequest.GET = (req, res) => {
 
 // for any post request
 forRequest.POST = (req, res) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/plain'
+
+    parseBody(req, res, function(req, res){
+        console.log('');
+        console.log('body: ');
+        console.log(req.body);
+        console.log('');
+
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        res.write('hello world, yes this is a response to a POST', 'utf8');
+        res.end();
     });
-    res.write('hello world, yes this is a response to a POST', 'utf8');
-    res.end();
 };
 
 // on request
