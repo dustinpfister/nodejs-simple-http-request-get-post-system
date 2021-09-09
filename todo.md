@@ -1,5 +1,10 @@
 # nodejs-simple-http-request-get-post-system todo list
 
+## () - 0.5.0 - ui in index.html, and demo middleware
+* in place of text.json have a map.json that will contain data for a map
+* the map can just be an array of objects for a 8 by 8 grid
+* the index.html ui can be used to mutate the state of the json file map
+
 ## ( done 09/09/2021 ) - 0.4.0 - middleware folder
 * (done) have a /middleware folder which is what will be what is used to customize how requests should be processed
 * (done) have a /middleware/index.js file that will be the main file that the server script will call for a request
