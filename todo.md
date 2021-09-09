@@ -1,9 +1,9 @@
 # nodejs-simple-http-request-get-post-system todo list
 
-## () - 0.2.0 - Make post requests from /public/index.html
+## ( done 09/09/2021 ) - 0.2.0 - Make post requests from /public/index.html
 * (done) make changes to static-server-post that will allow for responding to post requests
-* make a post request from index.html
-* read and write to a /foo.txt file at root for now
+* (done) make a post request from index.html
+* (done) just send any kind of response for a post for now
 
 ## ( done 09/09/2021 ) - 0.1.0 - start utils.js, and updated client system
 * (done) have a /public/js folder with a utils.js file
