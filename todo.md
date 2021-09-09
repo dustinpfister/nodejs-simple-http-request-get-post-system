@@ -5,13 +5,13 @@
 * make a post request from index.html
 * read and write to a /foo.txt file at root for now
 
-## () - 0.1.0 - start utils.js, and updated client system
+## ( done 09/09/2021 ) - 0.1.0 - start utils.js, and updated client system
 * (done) have a /public/js folder with a utils.js file
 * (done) the utils.js file should have an utils.http method based off of the one in js-javascript-example-utils
 * (done) have a /public/img folder with a banner.png image
 * (done) use the /public/img/banner.png file in /public/index.html
-* have a /public/test.json file
-* use utils.http to get the test.json file and inject the data into index.html
+* (done) have a /public/test.json file
+* (done) use utils.http to get the test.json file and inject the data into index.html
 
 ## ( done 09/09/2021 ) - 0.0.0 - start the project
 * (done) start the project folder based off of the simple sever project folder
