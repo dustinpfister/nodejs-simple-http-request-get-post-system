@@ -4,11 +4,15 @@ Starting with my simple static sever script example, the goal with this simple n
 
 ## Very basic middleware example
 
+The index.js file in the midleware folder should export a single function. The arguments of this function will contain references to the request object, response object, and a next function that should be called when the post request has been processed. There should be a req.body object that contains the data that was send from the client system, and it is the res.resObj that should be updated with any data that should be sent back to the client.
+
 So a very basic example of an external middleware at /middleware/index.js would lok like this:
 
 ```js
 module.exports = (req, res, next) => {
     console.log('for now I just log this message');
+    console.log(req.body);   // the parsed body from the client
+    console.log(res.resObj); // the response object that will be sent
     next(req, res);
 };
 ```

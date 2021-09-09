@@ -196,7 +196,7 @@ forRequest.GET = (req, res) => {
 forRequest.POST = (req, res) => {
     // parse the given body
     parseBody(req, res, function(req, res){
-        res.resposeObj = {
+        res.resObj = {
            body: req.body,
            mess: ''
         };
@@ -207,7 +207,7 @@ forRequest.POST = (req, res) => {
                 'Content-Type': 'text/plain'
             });
             // send back this object as a response
-            res.write(JSON.stringify(res.resposeObj), 'utf8');
+            res.write(JSON.stringify(res.resObj), 'utf8');
             res.end();
         });
     });
