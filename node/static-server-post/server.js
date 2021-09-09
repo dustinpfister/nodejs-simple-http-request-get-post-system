@@ -41,7 +41,7 @@ let createPathInfoObject = (url) => {
     // starting state
     let pInfo = {
         url : url,
-        uri : path.join(dir_root, url),
+        uri : path.join(dir_public, url),
         encoding: 'utf-8',
         mime: 'text/plain',
         ext: '',
