@@ -25,8 +25,8 @@ let dir_root = process.argv[2] || path.join(__dirname, '../..');
 // the folder to look for middware to know what to do for post requests
 let dir_middleware = path.join(dir_root, 'middleware');
 
-// default middleware is noop
-let middleware = function(){}; 
+// default middleware that does nothing
+let middleware = function(req, res, next){next(req, res);}; 
 
 // public folder to serve
 let dir_public = process.argv[3] || path.join(__dirname, '../../public');
@@ -196,16 +196,20 @@ forRequest.GET = (req, res) => {
 forRequest.POST = (req, res) => {
     // parse the given body
     parseBody(req, res, function(req, res){
-        // when done send a response
-        res.writeHead(200, {
-            'Content-Type': 'text/plain'
+        res.resposeObj = {
+           body: req.body,
+           mess: ''
+        };
+        // call middleware
+        middleware(req, res, function(res, res){
+            // when done send a response
+            res.writeHead(200, {
+                'Content-Type': 'text/plain'
+            });
+            // send back this object as a response
+            res.write(JSON.stringify(res.resposeObj), 'utf8');
+            res.end();
         });
-        // send back this object as a response
-        res.write(JSON.stringify({
-            body: req.body,
-            mess: 'this is dog'
-        }), 'utf8');
-        res.end();
     });
 };
 
