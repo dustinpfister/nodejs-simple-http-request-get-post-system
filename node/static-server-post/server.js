@@ -188,12 +188,17 @@ forRequest.GET = (req, res) => {
 
 // for any post request
 forRequest.POST = (req, res) => {
-
+    // parse the given body
     parseBody(req, res, function(req, res){
+        // when done send a response
         res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
-        res.write('hello world, yes this is a response to a POST', 'utf8');
+        // send back this object as a response
+        res.write(JSON.stringify({
+            body: req.body,
+            mess: 'this is dog'
+        }), 'utf8');
         res.end();
     });
 };
