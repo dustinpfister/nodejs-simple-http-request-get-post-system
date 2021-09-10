@@ -51,12 +51,10 @@ module.exports = (req, res, next) => {
         }catch(e){
             map = {};
         }
-
         // apply any actions to map
         updateMap(map, req.body);
-
         // write map
-        writeFile(uri_map, JSON.stringify(newMap), 'utf8')
+        writeFile(uri_map, JSON.stringify(map), 'utf8')
         .then(()=>{
             res.resObj.map = map;
             next(req, res);
