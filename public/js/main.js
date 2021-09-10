@@ -36,26 +36,20 @@ var getMap = function (done) {
 
 // draw the state of the map
 var drawMap = function (map) {
-
     var el = document.querySelector('#map_disp'),
     html = '<table>';
-	
-	var y = 0, x;
-	
-	while(y < map.h){
-		x = 0;
-		html += '<tr>'
-		while(x < map.w){
-			html += '<td>cell</td>';
-			x += 1;
-		}
-		html += '</tr>';
-		y +=1;
-	}
-	
-	
+    var y = 0,
+    x;
+    while (y < map.h) {
+        x = 0;
+        html += '<tr>' while (x < map.w) {
+            html += '<td>cell</td>';
+            x += 1;
+        }
+        html += '</tr>';
+        y += 1;
+    }
     el.innerHTML = html + '</table>';
-
 };
 
 // call get map for the first time
