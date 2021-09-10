@@ -22,7 +22,7 @@ let BODY_MAX_SIZE = 1024;
 // the root folder of the project
 let dir_root = process.argv[2] || path.join(__dirname, '../..');
 
-// the folder to look for middware to know what to do for post requests
+// the folder to look for middleware to know what to do for post requests
 let dir_middleware = path.join(dir_root, 'middleware');
 
 // default middleware that does nothing
@@ -107,7 +107,7 @@ let createDirInfo = (pInfo) => {
     // first check for an index.html
     let uriIndex = path.join( pInfo.uri, 'index.html' );
     return readFile(uriIndex)
-    // if all goes file we have an indrex file call createPathInfoObject with new uri
+    // if all goes file we have an index file call createPathInfoObject with new uri
     .then((file)=>{
         pInfo.uri = uriIndex;
         pInfo.ext = '.html';
