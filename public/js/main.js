@@ -1,4 +1,8 @@
 
+var state = {
+    map: {}
+};
+
 var setCellType = function (cellIndex, typeIndex, done) {
     utils.http({
         url: '/',
@@ -60,8 +64,9 @@ getMap(function (map, e) {
     if (e) {
         console.log(e);
     } else {
-        console.log(map);
-        drawMap(map);
+        console.log('GET map');
+        state.map = map;
+        drawMap(state.map);
     }
 });
 
