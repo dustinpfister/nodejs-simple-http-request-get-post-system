@@ -1,8 +1,8 @@
 # nodejs-simple-http-request-get-post-system todo list
 
-## () - 0.6.0 - better ui in index.html
-* display current state of map
-* can select what cell to mutate
+## ( done 09/10/2021 ) - 0.6.0 - better ui in index.html
+* (done) display current state of map
+* (done) can select what cell to mutate
 
 ## ( done 09/10/2021 ) - 0.5.1 - fix network interface bug
 * (done) fix bug when lo interface is not there
