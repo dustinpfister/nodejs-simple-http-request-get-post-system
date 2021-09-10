@@ -42,7 +42,8 @@ var drawMap = function (map) {
     x;
     while (y < map.h) {
         x = 0;
-        html += '<tr>' while (x < map.w) {
+        html += '<tr>';
+        while (x < map.w) {
             html += '<td>cell</td>';
             x += 1;
         }

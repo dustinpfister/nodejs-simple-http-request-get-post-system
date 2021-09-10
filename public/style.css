@@ -7,10 +7,10 @@ body{
   width: 100%;
 }
 .banner_text{
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
   text-align: center;
-  line-height:200px;
-  font-size:60px;
+  line-height:100px;
+  font-size:30px;
   color: #dfdfdf;
 }
 .content{
