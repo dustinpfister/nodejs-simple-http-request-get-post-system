@@ -10,11 +10,11 @@ var setCellType = function (cellIndex, typeIndex, done) {
         body: JSON.stringify({
             mess: 'hello',
             action: 'setCellType',
-            cellIndex: 1,
-            typeIndex: 1
+            cellIndex: cellIndex,
+            typeIndex: typeIndex
         }),
         onDone: function (res) {
-            done(res, null);
+            done(JSON.parse(res), null);
         },
         onError: function (e) {
             done(null, e);
@@ -70,13 +70,14 @@ getMap(function (map, e) {
     }
 });
 
-/*
-// set cell type
-setCellType(1, 1, function (res, e) {
-if (e) {
-console.log(e);
-} else {
-console.log(res);
-}
+document.getElementById('input_set_typeindex').addEventListener('click', function () {
+    // set cell type
+    setCellType(1, 0, function (res, e) {
+        if (e) {
+            console.log(e);
+        } else {
+            state.map = res.map;
+            drawMap(state.map);
+        }
+    });
 });
-*/
