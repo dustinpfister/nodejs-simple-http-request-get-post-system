@@ -27,9 +27,7 @@ let dir_middleware = path.join(dir_root, 'middleware');
 
 // default middleware that does nothing
 let middleware = function(req, res, next){
-
-next(req, res);
-
+    next(req, res);
 }; 
 
 // public folder to serve
@@ -39,8 +37,11 @@ let dir_public = process.argv[3] || path.join(__dirname, '../../public');
 let port = process.argv[4] || 8080; // port 8888 for now
 
 // host defaults to os.networkInterfaces().lo[0].address
-let netInter = os.networkInterfaces();
-let host = process.argv[5] || netInter.lo[0].address; 
+let netInter = os.networkInterfaces(), 
+host = process.argv[5] || 'localhost';
+if(netInter.lo){
+    host = process.argv[5] || netInter.lo[0].address || 'localhost';
+}
 
 // create path info object
 let createPathInfoObject = (url) => {
