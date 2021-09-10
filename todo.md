@@ -1,5 +1,9 @@
 # nodejs-simple-http-request-get-post-system todo list
 
+## () - 0.6.1 - fix bug with using system on other coputrets on network
+* see about fixing a bug where I can not get to the client system from another computer on the network
+* loosing the host argument when calling sever.listen seems to work, but find a way without having to do that.
+
 ## ( done 09/10/2021 ) - 0.6.0 - better ui in index.html
 * (done) display current state of map
 * (done) can select what cell to mutate
