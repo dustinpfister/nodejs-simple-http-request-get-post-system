@@ -71,8 +71,12 @@ getMap(function (map, e) {
 });
 
 document.getElementById('input_set_typeindex').addEventListener('click', function () {
+    var x = document.getElementById('input_x').value,
+    y = document.getElementById('input_y').value,
+    cellIndex = parseInt(y) * state.map.w + parseInt(x),
+    typeIndex = parseInt(document.getElementById('input_typeindex').value);
     // set cell type
-    setCellType(1, 0, function (res, e) {
+    setCellType(cellIndex, typeIndex, function (res, e) {
         if (e) {
             console.log(e);
         } else {
