@@ -4,9 +4,9 @@
 * display current state of map
 * can select what cell to mutate
 
-## () - 0.5.1 - fix network interface bug
-* fix bug when lo interface is not there
-* default to a string value of '127.0.0.1' if no interface is found
+## ( done 09/10/2021 ) - 0.5.1 - fix network interface bug
+* (done) fix bug when lo interface is not there
+* (done) default to a string value of '127.0.0.1' if no interface is found
 
 ## ( done 09/09/2021 ) - 0.5.0 - start new ui in index.html, and demo middleware
 * (done) have a map.json that will contain data for a map
